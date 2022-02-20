@@ -1,0 +1,31 @@
+
+
+header {
+    text-align: center;
+}
+
+.Game {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Game p {
+    font-size: 150px;
+}
+
+.Rock {
+   background-color: yellow;
+    flex: 1;
+}
+
+.Paper {
+    background-color: red;
+    flex: 1;
+}
+
+.Scissor {
+    background-color: purple;
+    flex: 1;
+}
