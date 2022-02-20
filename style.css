@@ -9,7 +9,7 @@ header {
     text-align: center;
     align-items: center;
     flex-wrap: wrap;
-}
+   }
 
 .Game p {
     font-size: 150px;
@@ -28,4 +28,16 @@ header {
 .Scissor {
     background-color: purple;
     flex: 1;
+}
+
+#userChoice {
+    font-size: 50px;
+}
+
+#compChoice {
+    font-size: 50px;
+}
+
+#winner {
+    font-size: 50px;
 }
