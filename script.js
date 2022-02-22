@@ -7,67 +7,140 @@ var winner = document.querySelector("#winner");
 var leftSection = document.querySelector("#leftSection");
 var middleSection = document.querySelector("#middleSection");
 var rightSection = document.querySelector("#rightSection");
-var decision = "";
+var button = document.querySelector(".Button");
+var win = "CONGRATS!! YOU WON";
+var lose = "OOPS. YOU LOST";
+var tie = "ITS A TIE";
+var winScore = 0;
+var lossScore = 0;
+var tieScore = 0;
 
-
-// Computer Choice
-function random(items) {
+function gameStart() {
+  // Computer Choice
+  function random(items) {
     return items[Math.floor(Math.random() * items.length)];
-}
-var items = ["ROCK", "PAPER", "SCISSOR"];
-var computerChoice = random(items);
+  }
+  var items = ["ROCK", "PAPER", "SCISSOR"];
+  var computerChoice = random(items);
 
-Rock.onclick = function () {
-  rockClick()
-};
-Paper.onclick = function () {
-  paperClick()
-};
-Scissor.onclick = function () {
-  scissorClick()
-};
+  Rock.onclick = function () {
+    rockClick();
+  };
+  Paper.onclick = function () {
+    paperClick();
+  };
+  Scissor.onclick = function () {
+    scissorClick();
+  };
 
-
-// Computer Choice
-function random(items) {
+  // Computer Choice
+  function random(items) {
     return items[Math.floor(Math.random() * items.length)];
-}
-var items = ["ROCK", "PAPER", "SCISSOR"];
-var computerChoice = random(items);
+  }
+  var items = ["ROCK", "PAPER", "SCISSOR"];
+  var computerChoice = random(items);
 
+  function rockClick() {
+    userChoice.textContent = "You Chose";
+    leftSection.textContent = "Rock";
+    rightSection.textContent = computerChoice;
 
+    compChoice.textContent = `Computer Chose`;
 
-function rockClick() {
-  userChoice.textContent = "You Chose";
-  leftSection.textContent = "Rock";
-  
-  compChoice.textContent = `Computer Chose ${computerChoice}`;
+    if (computerChoice === "ROCK") {
+      winner.textContent = tie;
+      tieScore++;
+    } else if (computerChoice === "PAPER") {
+      winner.textContent = lose;
+      lossScore++;
+    } else {
+      winner.textContent = win;
+      winScore++;
+    }
 
+    middleSection.textContent = `Win: ${winScore}
+  Loss: ${lossScore} 
+  Tie: ${tieScore}`;
 
-  if (computerChoice === "ROCK") {
-
-    decision = "TIE"
-      
-  } else if (computerChoice === "PAPER") {
-      decision = "Computer"
-  } else {
-      decision = "You"
+    middleSection.style.fontSize = "75px";
+    createBTN();
   }
 
+  function paperClick() {
+    userChoice.textContent = "You Chose";
+    leftSection.textContent = "Paper";
+    rightSection.textContent = computerChoice;
+    compChoice.textContent = `Computer Chose`;
 
-  winner.textContent = `The Winner is ${decision}`;
+    if (computerChoice === "ROCK") {
+      winner.textContent = win;
+      winScore++;
+    } else if (computerChoice === "PAPER") {
+      winner.textContent = tie;
+      tieScore++;
+    } else {
+      winner.textContent = lose;
+      lossScore++;
+    }
+
+    middleSection.textContent = `Win: ${winScore}
+  Loss: ${lossScore} 
+  Tie: ${tieScore}`;
+
+    middleSection.style.fontSize = "75px";
+    createBTN();
+  }
+
+  function scissorClick() {
+    userChoice.textContent = "You Chose";
+    leftSection.textContent = "Scissor";
+    rightSection.textContent = computerChoice;
+    compChoice.textContent = `Computer Chose`;
+
+    if (computerChoice === "ROCK") {
+      winner.textContent = lose;
+      lossScore++;
+    } else if (computerChoice === "PAPER") {
+      winner.textContent = win;
+      winScore++;
+    } else {
+      winner.textContent = tie;
+      tieScore++;
+    }
+
+    middleSection.textContent = `Win: ${winScore}
+  Loss: ${lossScore} 
+  Tie: ${tieScore}`;
+
+    middleSection.style.fontSize = "75px";
+    createBTN();
+  }
 }
 
-function paperClick() {
-  userChoice.textContent = "You Chose";
-  leftSection.textContent = "Paper";
-  winner.textContent = "The Winner is XXXX";
-  compChoice.textContent = `Computer Chose ${computerChoice}`;
+function createBTN() {
+  var btn = document.createElement("button");
+  btn.textContent = "PLAY AGAIN?";
+
+  button.appendChild(btn);
+  
+  btn.onclick = function () {
+    gameRestart()
+    btn.remove()
+  }
 }
 
-function scissorClick() {
-  userChoice.textContent = "You Chose";
-  leftSection.textContent = "Scissor";
-  winner.textContent = "The Winner is XXXX";
-  compChoice.textContent = `Computer Chose ${computerChoice}`;
+function gameRestart() {
+  
+  userChoice.textContent = "";
+  leftSection.textContent = "ROCK";
+  middleSection.textContent = "PAPER"
+  rightSection.textContent = "SCISSOR";
+  compChoice.textContent = "";
+  winner.textContent = "";
+  middleSection.style.fontSize = "150px";
+
+  gameStart()
 }
+
+
+gameStart()
