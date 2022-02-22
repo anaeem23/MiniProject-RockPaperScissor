@@ -1,43 +1,53 @@
-
-
 header {
-    text-align: center;
+  text-align: center;
+}
+
+h1 {
+    font-size: 100px;
+}
+
+h2 {
+    font-size: 50px;
 }
 
 .Game {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-wrap: wrap;
-   }
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
 
 .Game p {
-    font-size: 150px;
+  font-size: 150px;
 }
 
 .Rock {
-   background-color: yellow;
-    flex: 1;
+  background-color: yellow;
+  flex: 1;
+  
 }
 
 .Paper {
-    background-color: red;
-    flex: 1;
+  background-color: red;
+  flex: 1;
+
+
 }
 
 .Scissor {
-    background-color: purple;
-    flex: 1;
+  background-color: purple;
+  flex: 1;
+  
 }
 
 #userChoice {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 #compChoice {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 #winner {
-    font-size: 50px;
+  font-size: 50px;
 }
